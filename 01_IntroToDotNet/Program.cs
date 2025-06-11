@@ -69,9 +69,6 @@ namespace _01_IntroToDotNet
             Console.WriteLine("The revers is: " +(number3%10)+(number3%100/10)+(number3%1000/100)+(number3%10000/1000)+(number3%100000/10000)+(number3/100000));
             Console.WriteLine("Task4\n\tFibonacci");
             Console.WriteLine("Enter the number of Fibonacci range");
-            //int number = int.Parse(string); //Doesn't work, why?
-            //Console.WriteLine(number + "!!!!");
-            //Console.WriteLine(number + 10 + "!!!!");
             number3 = 0;
             int number4 = int.Parse( Console.ReadLine()! );
             int i = 0;

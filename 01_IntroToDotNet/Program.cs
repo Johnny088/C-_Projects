@@ -110,7 +110,11 @@ namespace _01_IntroToDotNet
             }
             else if (number5 == 2)
             {
-                Console.WriteLine(symbol);
+                for (int step = 0; step < number6; step++)
+                {
+                    Console.WriteLine(symbol);
+                }
+                
             }
             else
             {

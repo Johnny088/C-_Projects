@@ -46,13 +46,31 @@ namespace ConsoleApp1
                 {
                     Console.Write(i + " ");
                 }
+                
             }
+            Console.Write("\n");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine($"task3\nОголосити одновимірний (5 елементів) масив з назвою\r\nA i " +
                 $"двовимірний масив (3 рядки, 4 стовпці) дробових чисел\r\nз назвою B. " +
                 $"Заповнити одновимірний масив А числами,\r\nвведеними з клавіатури користувачем, а двовимірний\r\nмасив В — випадковими числами за допомогою циклів." +
                 $"\r\nВивести на екран значення масивів: масиву А — в один\r\nрядок, масиву В — у вигляді матриці. Знайти у даних" +
                 $"\r\nмасивах загальний максимальний елемент, мінімальний\r\nелемент, загальну суму усіх елементів, загальний добуток" +
                 $"\r\nусіх елементів, суму парних елементів масиву А, суму\r\nнепарних стовпців масиву В.");
+            int []a = new int[5];
+            float [,]b = new float[3,4];
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write($"Enter the number for the element {(a[i]) +1 }: ");
+                a[i] = int.Parse(Console.ReadLine()!);
+            }
+            foreach (int l in a)
+            {
+                Console.Write(l + " ");
+            }
+            Console.WriteLine();
+
+
         }
     }
 }

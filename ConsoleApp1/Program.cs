@@ -1,6 +1,4 @@
-﻿using System.Text.Unicode;
-
-namespace ConsoleApp1
+﻿namespace ConsoleApp1
 {
     internal class Program
     {

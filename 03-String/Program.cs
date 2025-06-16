@@ -1,4 +1,6 @@
 ﻿
+using System.Numerics;
+
 namespace _03_String
 {
     internal class Program
@@ -25,17 +27,17 @@ namespace _03_String
             first = "A man, a plan, a canal, Panama"; // original
             Console.WriteLine($"Origin {first,50}"); // just showing
             string[] temp = first.Split(new char[] { ' ', ',', '!', '.', '?' }, StringSplitOptions.RemoveEmptyEntries); //turning to char[], and splitting all symbols       Temp
-            Console.WriteLine("temp --------->");
+            Console.WriteLine("temp  char []--------->");
             foreach (string s in temp)                                         // getting result
             {
-                Console.Write(s + "");                                        // everything is ok, it's need 
+                Console.Write(s);                                        // everything is ok, it's need 
             }
             Console.WriteLine();
             //Console.WriteLine($"temp: {temp,36}");
-            second = string.Concat(temp);
+            second = string.Concat(temp); 
             Console.WriteLine($"Second: {second,40}");
             string second2 = second.ToLower();
-            Console.WriteLine($"Second lower: {second2,34}"); //lower
+            Console.WriteLine($"Second lower: {second2,34}");       //lower
             char[] five = second2.ToCharArray();
   
             Array.Reverse(five);
@@ -64,17 +66,48 @@ namespace _03_String
                 Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Task3.\nДано текст. Визначте відсоткове відношення малих і великих літер до загальної кількості символів в ньому.");
+            string message = "Визначте відсоткове відношення малих";
             Console.ForegroundColor = ConsoleColor.Cyan;
+            int lower = 0, upper=0, total =0;
+            for (int i = 0; i < message.Length; i++)
+            {
+                if (Char.IsLower(message[i]))
+                {
+                    lower++;
+                }
+                if (Char.IsUpper(message[i]))
+                {
+                    upper++;
+                }
+
+            }
+            total = message.Length;
+            Console.WriteLine($"number of letters is: {total} \nnumber of upper letters is: {upper} \nnumber of lower letters is: {lower}");
+            Console.WriteLine();
+            Console.WriteLine("percent of upper characters:" + (upper *100 / total) +"%");
+            Console.WriteLine("percent of lower characters:" + (lower *100 / total) + "%");
+            
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Task4.\nДано масив слів. Замінити останні три символи слів, що мають обрану довжину, на символ \"$\".\n");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            string[] firth = new string[] { "some", "words", "needed", "for", "homework" };
-            foreach(string i  in firth)
+            string[] firth = new string[] { "some", "words", "neede", "for", "homework" };
+            Console.WriteLine("Enter the number of the length of the words");
+            int length = int.Parse(Console.ReadLine());
+            for (int i = 0; i < firth.Length; i++)
             {
-
+                {
+                    if (firth[i].Length == length)
+                    {
+                        firth[i] = firth[i].Substring(0, length - 3);
+                        firth[i] += "$";
+                    }
+                }
             }
-
-
+            foreach (string word in firth)
+            {
+                Console.Write(word +" ");
+            }
+            Console.WriteLine();
         }
     }
 }

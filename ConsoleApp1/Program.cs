@@ -128,19 +128,19 @@
             temp = 0;
             if ( mini > maxi)
             {
-                temp = mini;
-                mini = maxi;
-                maxi = temp;
-                temp = minj;
-                minj = maxj;
-                maxj = temp;
+                (mini, maxi) = (maxi, mini);
+                (minj,maxj) = (maxj, minj);
+                //temp = mini;
+                //mini = maxi;
+                //maxi = temp;
+                //temp = minj;
+                //minj = maxj;
+                //maxj = temp;
 
             }
             else if(mini == maxi && minj>maxj )
             {
-                temp = minj;
-                minj = maxj;
-                maxj= temp;
+                (minj,maxj) = (maxj,minj);
 
             }
             int f = mini, s = minj;

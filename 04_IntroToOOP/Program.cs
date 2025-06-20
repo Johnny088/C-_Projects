@@ -8,19 +8,14 @@
         {
             Console.WriteLine($"Volume: {volume} \nWidth: {width} \nHeight: {height} \nRelease date: {release_date} \nColor {Color} \nBrand: {brand} \nTotal number of freezers: {count} \n-------------------");
         }
-        static Freezer()
-            {
-                brand = "Bliss";
-                count = 0;
-                count++;
-
-            }
+        
         public Freezer()
         {
             Volume = volume;
             Width = width;
             Height = height;
             Release_date = release_date;
+            count++;
         }
         public Freezer(int volume, int width, int height, int release_date, string color)
         {
@@ -29,6 +24,7 @@
             Height = height;
             Release_date = release_date;
             Color = color;
+            count++;
         }
         public override string ToString()
         {

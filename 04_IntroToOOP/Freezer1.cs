@@ -4,5 +4,12 @@
     {
         private static string brand;
         private static int count;
+
+        static Freezer()
+        {
+            brand = "Bliss";
+            count = 0;
+
+        }
     }
-}
+    }

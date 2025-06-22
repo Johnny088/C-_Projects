@@ -25,7 +25,7 @@
             char WhitePawn = '\u2659';
             char BlackPawn = '\u265F';
             
-            for (int i = 0; i<8; i++)
+            for (int i = 0; i<8; i++)                                        //Start of setting background colors
             {
                 for (int j = 0; j < 9; j++)
                 {
@@ -59,8 +59,11 @@
                     }
                     else
                     {
-                        Console.ResetColor();
+                        Console.ResetColor();                                   // End of setting background colors
                     }
+
+                    //--------------------------------------------- putting double spaces into the empty points------------------------
+
                     if (i == 3 && j !=0)
                     {
                         Console.Write("  ");
@@ -73,6 +76,7 @@
                     {
                         Console.Write("  ");
                     }
+                    //------------------------------------------end---------------------------------
 
                     if (i == 0 && j > 0)                                              //Characters of destination
                     {
@@ -88,10 +92,7 @@
                         Console.Write(WhitePawn + " ");
                         Console.ResetColor();
                     }
-                    if (i==6 && j!=0)                                             //White Pawn
-                    {
-                        Console.Write(WhitePawn + " ");
-                    }
+                    
                     if (i == 1 && j == 1 || i==1 && j==8)                         //Black Rook
                     {
                         Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -126,35 +127,49 @@
                     //----------------------------------------------------------------White Figures------------------------------------------------
                     if (i == 7 && j == 1 || i == 7 && j == 8)                         //White Rook
                     {
-                        
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
                         Console.Write(WhiteRook + " ");
+                        Console.ResetColor();
                         
                     }
                     if (i == 7 && j == 2 || i == 7 && j == 7)                            //White Knight
                     {
                         
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
                         Console.Write(WhiteKnight + " ");
+                        Console.ResetColor();
                         
                     }
                     if (i == 7 && j == 3 || i == 7 && j == 6)                            //White Bishop
                     {
                         
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
                         Console.Write(WhiteBishop + " ");
+                        Console.ResetColor();
                         
                     }
                     if (i == 7 && j == 4)                                                //White King
                     {
                         
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
                         Console.Write(WhiteKing + " ");
+                        Console.ResetColor();
                         
                     }
                     if (i == 7 && j == 5)                                                   //White Queen
                     {
                         
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
                         Console.Write(WhiteQueen + " ");
+                        Console.ResetColor();
                         
                     }
-                    
+                    if (i == 6 && j != 0)                                             //White Pawn
+                    {
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
+                        Console.Write(WhitePawn + " ");
+                        Console.ResetColor();
+                    }
 
 
                 }

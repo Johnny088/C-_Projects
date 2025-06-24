@@ -11,7 +11,7 @@
             public int Age
             {
                 get { return age; }
-                set 
+                set
                 {
                     if (value < 18)
                     {
@@ -28,7 +28,7 @@
             public double Salary
             {
                 get { return salary; }
-                set 
+                set
                 {
                     if (value < 8000)
                     {
@@ -45,9 +45,9 @@
             public DateTime EmploymentStartData
             {
                 get { return employmentStartData; }
-                set 
+                set
                 {
-                    if(value < DateTime.Now)
+                    if (value < DateTime.Now)
                     {
                         employmentStartData = value;
                     }
@@ -59,9 +59,9 @@
             }
             public Worker()
             {
-             
+
             }
-            public Worker(string name, string surname,int age,double salary, DateTime employmentStartData)
+            public Worker(string name, string surname, int age, double salary, DateTime employmentStartData)
             {
                 Name = name;
                 Surname = surname;
@@ -73,10 +73,60 @@
             {
                 Console.WriteLine($"Name: {Name} \nSurname: {Surname} \n age: {age} \nSalary: {salary} \nEmployment start date: {EmploymentStartData} \nExperience: {(DateTime.Now - EmploymentStartData).TotalDays}");
             }
-            
+
         }
 
-        static void MainMenu1()
+        static void Calculator()
+        {
+            double a, b;
+            string op;
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Calculator\n\tenter two numbers:");
+                a = int.Parse(Console.ReadLine()!);
+
+                b = int.Parse(Console.ReadLine()!);
+                Console.WriteLine("Enter the operation [+ - * /]");
+                op = Console.ReadLine()!;
+                switch (op)
+                {
+                    case "+":
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"{a} + {b} = {(a + b)}");
+                        break;
+                    case "-":
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"{a} - {b} = {(a - b)}");
+                        break;
+                    case "/":
+                        if (b == 0)
+                        {
+                            try
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                throw new Exception("Division by 0 is not allowed");
+                            }
+                            
+                            catch (Exception e) { Console.WriteLine(e.Message); }
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"{a} / {b} = {(a / b)}");
+                            
+                        }
+                        break;
+                    case "*":
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"{a} * {b} = {(a * b)}");
+                        break;
+                    default:
+                        break;
+                }
+            } while (op != ".");
+        }
+            static void MainMenu1()
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             int key;
@@ -84,8 +134,8 @@
             Worker[] workers = null;
             do
             {
-                
-                Console.WriteLine("1 - Making an array of workers. \n2 - Showing all workers \n3 - Exit");
+
+                Console.WriteLine("1 - Making an array of workers. \n2 - Showing all workers \n0 - Exit");
                 key = int.Parse(Console.ReadLine()!);
                 string name;
                 string surname;
@@ -97,7 +147,7 @@
                 switch (key)
                 {
                     case 1:
-                        Console.Write ("How many workers do you wanna add? ");
+                        Console.Write("How many workers do you wanna add? ");
                         size = int.Parse(Console.ReadLine()!);
                         Console.WriteLine();
                         workers = new Worker[size];
@@ -110,7 +160,7 @@
                                 Console.Write("Enter the surname: "); workers[i].Surname = Console.ReadLine()!; Console.WriteLine();
                                 Console.Write("Enter the age: "); workers[i].Age = int.Parse(Console.ReadLine()!); Console.WriteLine();
                                 Console.Write("Enter the Salary of employment: "); workers[i].Salary = double.Parse(Console.ReadLine()!); Console.WriteLine();
-                                Console.Write("Enter day of employment: "); workers[i].EmploymentStartData = Convert.ToDateTime (Console.ReadLine()!); Console.WriteLine();
+                                Console.Write("Enter day of employment: "); workers[i].EmploymentStartData = Convert.ToDateTime(Console.ReadLine()!); Console.WriteLine();
                                 //Console.Write("Enter the year of employment: "); year = int.Parse(Console.ReadLine()!); Console.WriteLine();
                                 //Console.Write("Enter the month of employment: "); month = int.Parse(Console.ReadLine()!); Console.WriteLine();
                                 //Console.Write("Enter the day of employment: "); day = int.Parse(Console.ReadLine()!); Console.WriteLine();
@@ -119,7 +169,7 @@
                             }
                         }
                         catch (Exception e) { Console.WriteLine(e.Message); }
-                        
+
                         break;
                     case 2:
                         foreach (var item in workers)
@@ -127,20 +177,24 @@
                             item.print();
                         }
                         break;
+                    case 0:
+                        break;
                     default:
                         break;
                 }
-                
+
             } while (key != 0);
 
         }
         static void Main(string[] args)
         {
-            Console.WriteLine();
+
             MainMenu1();
-            Worker worker = new Worker("name","surname", 30, 59000000, new DateTime (2000,12,13)); // input from keyboard year-month-day
+            Worker worker = new Worker("name", "surname", 30, 59000000, new DateTime(2000, 12, 13)); // input from keyboard year-month-day
             ////worker.EmploymentStartData.Date = DateTime.
+            Calculator();
             
         }
+
     }
 }

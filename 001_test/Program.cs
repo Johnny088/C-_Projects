@@ -1,11 +1,12 @@
 ﻿namespace _001_test
 {
+    enum place
+    {
+        a, b, c, d, e, f, g, h
+    }
     internal class Program
     {
-        private enum place
-        {
-            a,b,c,d,e,f,g,h
-        }
+        
 
         static void Main(string[] args)
         {

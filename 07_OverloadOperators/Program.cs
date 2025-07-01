@@ -396,7 +396,7 @@ namespace _07_OverloadOperators
             Console.WriteLine(value);
             Console.WriteLine("-------------------- Implicit from Square to int  -------------------");
             value = s2;
-            Console.WriteLine(s2);
+            Console.WriteLine(value);
             Console.WriteLine("-------------------- Implicit from Square to Rectangle  -------------------");
             Rectangle rec3 = s2;
             Console.WriteLine(rec3);

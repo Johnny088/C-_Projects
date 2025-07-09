@@ -436,6 +436,28 @@ namespace _08_Inheritance
             Console.WriteLine($"THe perimeter of the circle = {2 * pi * r}");
         }
     }
+    class CompositeShape
+    {
+        GeometricShape[] shapes;
+        public CompositeShape(params GeometricShape[] shape)
+        {
+            shapes = shape;
+        }
+        public void AddShape(GeometricShape shape)
+        {
+            Array.Resize(ref shapes, shapes.Length + 1);
+            shapes[shapes.Length - 1] = shape;
+        }
+        public void PrintResult()
+        {
+            foreach (GeometricShape shape in shapes)
+            {
+                Console.WriteLine("-------------------------------------------");
+                shape.GetArea();
+                shape.GetPerimeter();
+            }
+        }
+    }
     internal class Program
     {
 
@@ -500,21 +522,18 @@ namespace _08_Inheritance
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            GeometricShape[] shapes = new GeometricShape[]
-            {
-                tr1,
-                rh1,
-                rec1,
-                par1,
-                trap1,
-                c1
-            };
-            //shapes.Append(c1);
-            foreach (var shape in shapes)
-            {
-                shape.GetArea();
-                shape.GetPerimeter();
-            }
+            //GeometricShape[] shapes = new GeometricShape[]
+            //{
+            //    tr1,
+            //    rh1,
+            //    rec1,
+            //    par1,
+            //    trap1,
+            //    c1
+            //};
+            //CompositeShape figures = new CompositeShape(shapes);
+            CompositeShape figures = new CompositeShape(tr1,rh1,rec1,par1,trap1,c1);
+            figures.PrintResult();
 
             Console.ResetColor();
         }

@@ -3,12 +3,28 @@
     
     internal class Program
     {
+        public delegate void DelegateMenu();
         static void MainMenu()
         {
-            int key;
+            int key1;
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Menu: \n1 - number of the negative elements \n2 - turning all the negative numbers to 0 \n3 - sorting an array all even numbers in the beginning" +
+            Console.WriteLine("Menu: \n1 - Array calculation \n2 - Changing Array \n" +
                 "");
+            key1 = int.Parse(Console.ReadLine()!);
+            //if (key1 == 1) { menu1(); }
+            //if (key1 == 2) { menu2(); }
+            DelegateMenu[] delegateMenus = { menu1, menu2 };
+            delegateMenus[key1 - 1]?.Invoke();
+        }
+        public delegate void DelegateMenu2(int[] arr);
+        static void menu1()
+        {
+            Console.WriteLine();
+            DelegateMenu2[] delegateMenus2 = new DelegateMenu2[] { Negative, TotalSum, SimpleNumbers };
+        }
+        static void menu2()
+        {
+
         }
         static void Negative(int[] arr)
         {

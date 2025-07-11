@@ -121,10 +121,12 @@
                 Console.WriteLine();
 
             }
+            Console.ForegroundColor= ConsoleColor.Cyan;
             Console.WriteLine($"min: {min} \nmax: {max}");
             Console.WriteLine($"---------------------------------------");
             Console.WriteLine($"min: {mini} - {minj}");
             Console.WriteLine($"max: {maxi} - {maxj}");
+            Console.ResetColor();
             temp = 0;
             if ( mini > maxi)
             {
@@ -187,7 +189,7 @@
                 for (int j = 0; j < arr1.GetLength(1); j++)
                 {
 
-                    Console.Write($"{arr1[i, j],4} ");
+                    Console.Write($"{arr1[i, j],4}");
                     if((min + 5) == arr1[i, j])
                     {
                         count++;

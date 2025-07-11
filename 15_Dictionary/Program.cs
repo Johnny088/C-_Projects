@@ -1,4 +1,4 @@
-﻿using System.Threading.Channels;
+﻿//using System.Threading.Channels;
 
 namespace _15_Dictionary
 {
@@ -44,7 +44,7 @@ namespace _15_Dictionary
             foreach (var item in contact)
             {
                 count ++;
-                Console.WriteLine($" the contact number {count}\n tel: {item.Key} name: {item.Value}");
+                Console.WriteLine($" the contact number {count}\n tel: {item.Key} {item.Value}");
             }
         }
     }

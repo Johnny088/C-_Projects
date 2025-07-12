@@ -76,12 +76,13 @@ namespace _10_StandartInterface
         public object Clone()
         {
             Movie temp =(Movie) this.MemberwiseClone();
-            temp.director = new Director()
-            {
-                Name = this.director.Name,
-                Surname = this.director.Surname
-            };
-           
+            //temp.director = new Director()                   //first option
+            //{
+            //    Name = this.director.Name,
+            //    Surname = this.director.Surname
+            //};
+            temp.director = (Director)this.director.Clone(); // option two
+            
             return temp;
         }
     }
@@ -265,7 +266,7 @@ namespace _10_StandartInterface
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("---------------------------Test ICloneable origin again-----------------------------------------------------------");
             Console.WriteLine(origin);
-
+            Console.ResetColor();
         }
     }
 }

@@ -107,10 +107,10 @@
         {
             
             int[] temp3 = new int[arr.Length];
-            //temp3 = arr;
-            //Console.WriteLine(Object.ReferenceEquals(arr,temp3));
-            Array.Copy(arr, temp3, arr.Length);
-            Console.WriteLine(Object.ReferenceEquals(arr, temp3));
+            //temp3 = arr;                                           // makes two variables of one array
+            //Console.WriteLine(Object.ReferenceEquals(arr,temp3));  // shows true if the address equals each other
+            Array.Copy(arr, temp3, arr.Length);                      // the right way to copy the array                           
+            Console.WriteLine(Object.ReferenceEquals(arr, temp3));   // shows false, so I can work with the array
             int j = 0;
             for (int i = 0;i < temp3.Length;i++)
             {

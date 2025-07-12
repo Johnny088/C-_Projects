@@ -75,17 +75,20 @@ namespace _10_StandartInterface
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            Movie temp =(Movie) this.MemberwiseClone();
+            temp.director = new Director()
+            {
+                Name = this.director.Name,
+                Surname = this.director.Surname
+            };
+           
+            return temp;
         }
     }
     class Cinema: IEnumerable
     {
         private Movie[] movies;
 
-        public void Sort()
-        {
-            Array.Sort(movies);
-        }
         public Cinema()
         {
             movies = [
@@ -166,6 +169,10 @@ namespace _10_StandartInterface
         public IEnumerator GetEnumerator()
         {
             return movies.GetEnumerator();
+        }
+        public void Sort()
+        {
+            Array.Sort(movies);
         }
         public void Sort(IComparer<Movie> comparer)
         {
@@ -255,6 +262,10 @@ namespace _10_StandartInterface
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("---------------------------Test ICloneable Copy-----------------------------------------------------------");
             Console.WriteLine(copy);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("---------------------------Test ICloneable origin again-----------------------------------------------------------");
+            Console.WriteLine(origin);
+
         }
     }
 }

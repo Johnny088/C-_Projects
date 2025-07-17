@@ -45,13 +45,13 @@ namespace _13_Events_Extensions
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             //Trader trader = new Trader();
-            Trader[] traders = new Trader[] { 
+            Trader[] traders = [ 
             new Trader{
              Name = "Johnny",Surname = "Depp", CurrencyUSD = 50000, CurrencyUAH = 20000},
             new Trader
             {Name = "Oleg", Surname = "Forgot", CurrencyUSD = 50000, CurrencyUAH = 20000 },
             new Trader{Name = "Sofia", Surname = "Surname", CurrencyUSD = 50000, CurrencyUAH = 20000 }
-            };
+            ];
             CurrencyExchange exchange = new CurrencyExchange();
 
             foreach(var person in traders)

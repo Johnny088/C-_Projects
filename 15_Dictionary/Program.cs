@@ -16,7 +16,7 @@ namespace _15_Dictionary
         }
         public override string ToString()
         {
-            return $"Name: {Name} Surname: {Surname}";
+            return $"Person: {Name,10} {Surname,10}";
         }
         
     }
@@ -37,6 +37,52 @@ namespace _15_Dictionary
  
             else
                 contact.Add(phone, cont);
+                
+        }
+        public void edit(string phone, Contact cont)
+        {
+            if(contact.ContainsKey(phone))
+            {
+                
+               
+                contact[phone] = cont;
+            }
+            else 
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("error key");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+        }
+        public void search(string phone)
+        {
+            if (contact.ContainsKey(phone))
+            {
+                Console.WriteLine($" the contact number \n tel: {phone} person: {contact[phone].Name} {contact[phone].Surname}");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("error key");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+        }
+        public void remove(string phone)
+        {
+            if (contact.ContainsKey(phone))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"The person: {phone} {contact[phone].Name} {contact[phone].Surname} was removed");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                contact.Remove(phone);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("error key");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+
         }
         public void print()
         {
@@ -44,7 +90,7 @@ namespace _15_Dictionary
             foreach (var item in contact)
             {
                 count ++;
-                Console.WriteLine($" the contact number {count}\n tel: {item.Key} {item.Value}");
+                Console.WriteLine($" the contact {count}\n tel: {item.Key,-10} {item.Value}");
             }
         }
     }
@@ -65,11 +111,55 @@ namespace _15_Dictionary
             phonebook.add("26", new Contact("Matthew", "Martin"));
            
             phonebook.add("26", new Contact("Rebeca", "Murthy"));
+            phonebook.add("27", new Contact("Rebert", "Kiyosaki"));
+            phonebook.add("28", new Contact("Brian", "Tracy"));
+            phonebook.add("29", new Contact("Warren", "Buffet"));
+            phonebook.print();
+            phonebook.search("25");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("---------------------- Edit-------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            phonebook.edit("25", new Contact("Rebeca", "Murthy"));
+            phonebook.print();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("---------------------- search-------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            phonebook.search("25");
+            Console.WriteLine("---------------------------remove---------------------------------");
+            phonebook.remove("25");
             phonebook.print();
 
 
 
-            Console.ResetColor();
+
+            Dictionary<string, string> contacts = new Dictionary<string, string>();
+            contacts.TryAdd("one", "two");
+            contacts.TryAdd("one", "two");
+            contacts.TryAdd("one", "two");
+            if(!contacts.TryAdd("two","one"))
+            {
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine("Error");
+                Console.ForegroundColor= ConsoleColor.Cyan;
+            }
+            foreach (KeyValuePair<string,string> item in contacts)
+            {
+                Console.WriteLine($"Key : {item.Key} value: {item.Value}");
+            }
+            Console.WriteLine("========================================");
+            foreach (var item in contacts)
+            {
+                Console.WriteLine($"Key : {item.Key} value: {item.Value}");
+            }
+
+
+
+
+
+
+
+
+                Console.ResetColor();
         }
     }
 }

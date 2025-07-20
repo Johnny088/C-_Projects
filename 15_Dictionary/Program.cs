@@ -1,5 +1,8 @@
 ﻿//using System.Threading.Channels;
 
+using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
+
 namespace _15_Dictionary
 {
     class Contact
@@ -94,6 +97,51 @@ namespace _15_Dictionary
             }
         }
     }
+    class Statistic
+    {
+        public string [] temp { get; set; }
+        Dictionary<string,int> statistic = new Dictionary<string,int>();
+        public Statistic()
+        {
+            temp = null;
+            statistic = new Dictionary<string,int>();
+        }
+        public void add(string key)
+        {
+            if(!statistic.ContainsKey(key))
+            {
+                statistic.Add(key, 1);
+                
+            }
+            else
+            {
+                Console.ForegroundColor= ConsoleColor.Green;
+                statistic[key]++;
+                Console.WriteLine("The Key was added");
+            }
+        }
+        public void print()
+        {
+            int count = 1;
+            foreach (var item in statistic)
+            {
+                Console.ForegroundColor= ConsoleColor.Cyan;
+                Console.WriteLine($"{count,3}. {item.Key,25} {item.Value,20}");
+                count ++;
+            }
+        }
+        public void SplitWords(string message)
+        {
+           temp = message.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+        }
+        public void AddCollection()
+        {
+            for (int i = 0; i < temp.Length; i++)
+            {
+                add(temp[i]);
+            }
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -130,19 +178,20 @@ namespace _15_Dictionary
             phonebook.print();
 
 
-
-
+            #region test
+            Console.ForegroundColor= ConsoleColor.Yellow;
+            Console.WriteLine("======================================test==============================================");
             Dictionary<string, string> contacts = new Dictionary<string, string>();
             contacts.TryAdd("one", "two");
             contacts.TryAdd("one", "two");
             contacts.TryAdd("one", "two");
-            if(!contacts.TryAdd("two","one"))
+            if (!contacts.TryAdd("twoertesddes", "one"))
             {
-                Console.ForegroundColor= ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error");
-                Console.ForegroundColor= ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Cyan;
             }
-            foreach (KeyValuePair<string,string> item in contacts)
+            foreach (KeyValuePair<string, string> item in contacts)
             {
                 Console.WriteLine($"Key : {item.Key} value: {item.Value}");
             }
@@ -151,10 +200,26 @@ namespace _15_Dictionary
             {
                 Console.WriteLine($"Key : {item.Key} value: {item.Value}");
             }
-
-
-
-
+            #endregion
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("======================================================Statistic==========================================");
+            Console.WriteLine("Завдання 2***. Програма «Статистика»" +
+                "\r\nПідрахувати, скільки разів кожне слово зустрічається у заданому" +
+                "\r\nтекстi. Результат записати до колекції Dictionary<" +
+                "\r\nTKey, TValue>. Тексt використовувати із додатка 1." +
+                "\r\nВивести статистику за текстом у вигляді таблиці (рис. 1)." +
+                "\r\nДодаток 1." +
+                "\r\nОсь будинок, який збудував Джек. А це пшениця, яка" +
+                "\r\nу темній коморі зберігається у будинку, який збудував" +
+                "\r\nДжек. А це веселий птах-синиця, який часто краде" +
+                "\r\nпшеницю, яка в темній коморі зберігається у будинку," +
+                "\r\nякий збудував Джек.");
+            string test = ("Ось будинок, який збудував Джек. А це пшениця, яка у темній коморі зберігається у будинку, який збудував Джек. А це веселий птах-синиця, який часто краде пшеницю, яка в темній коморі зберігається у будинку, який збудував Джек.");
+            Statistic test1 = new Statistic();
+            test1.SplitWords(test);
+            test1.AddCollection();
+            test1.print();
+            
 
 
 

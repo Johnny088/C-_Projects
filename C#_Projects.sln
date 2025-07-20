@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001_new_test", "001_new_tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_02_Events_Extensions", "13_02_Events_Extensions\13_02_Events_Extensions.csproj", "{0BDEF5A2-9B3F-4C2A-AD81-55523A9E5AE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001-test-test", "001-test-test\001-test-test.csproj", "{5BBC0E75-644C-432F-879A-D754098AA2D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{09D260DB-EE13-4E30-B937-77F46360747E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +121,14 @@ Global
 		{0BDEF5A2-9B3F-4C2A-AD81-55523A9E5AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BDEF5A2-9B3F-4C2A-AD81-55523A9E5AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BDEF5A2-9B3F-4C2A-AD81-55523A9E5AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBC0E75-644C-432F-879A-D754098AA2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBC0E75-644C-432F-879A-D754098AA2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBC0E75-644C-432F-879A-D754098AA2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBC0E75-644C-432F-879A-D754098AA2D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D260DB-EE13-4E30-B937-77F46360747E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D260DB-EE13-4E30-B937-77F46360747E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D260DB-EE13-4E30-B937-77F46360747E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D260DB-EE13-4E30-B937-77F46360747E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

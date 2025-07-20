@@ -93,7 +93,6 @@ namespace _13_02_Events_Extensions
             Console.ResetColor();
             test = "123321";
             Console.WriteLine(test.IfPalindrome()); 
-            Console.ResetColor();
             Console.ForegroundColor= ConsoleColor.DarkCyan;
             Console.WriteLine("Task 2. Need to make a Cezar code for the text");
             Console.ForegroundColor= ConsoleColor.Cyan;

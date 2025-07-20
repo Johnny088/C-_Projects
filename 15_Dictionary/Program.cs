@@ -1,8 +1,5 @@
 ﻿//using System.Threading.Channels;
 
-using System.Net.NetworkInformation;
-using System.Security.Cryptography.X509Certificates;
-
 namespace _15_Dictionary
 {
     class Contact

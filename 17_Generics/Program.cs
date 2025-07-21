@@ -1,4 +1,6 @@
-﻿namespace _17_Generics
+﻿
+
+namespace _17_Generics
 {
     class MyStack<type>
     {

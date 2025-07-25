@@ -16,15 +16,15 @@ namespace _001_new_test
     {
         static void Main(string[] args)
         {
-            //test test1 = new test();
-            ////test1.action += Test1_action;
-            //test1.action += Console.WriteLine;
-            //test1.action += delegate () { Console.BackgroundColor = ConsoleColor.DarkBlue; };
-            //test1.action += delegate () { Console.WriteLine("test");};
-            //test1.action += ()=> { Console.Beep(500,500);};
-            //test1.action += delegate () { Console.Beep(600,500);};
+            test test1 = new test();
+            //test1.action += Test1_action;
+            test1.action += Console.WriteLine;
+            test1.action += delegate () { Console.BackgroundColor = ConsoleColor.DarkBlue; };
+            test1.action += delegate () { Console.WriteLine("test"); };
+            test1.action += () => { Console.Beep(500, 500); };
+            test1.action += delegate () { Console.Beep(600, 500); };
 
-            //test1.StartAction();
+            test1.StartAction();
             string text = "textsad";
             char [] chars = text.ToCharArray();
             Console.WriteLine(text);

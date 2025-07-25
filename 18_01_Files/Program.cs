@@ -28,6 +28,7 @@ namespace _18_01_Files
                         writerOdd.Write(i + " ");
                     }
                 }
+                
             }
             using (StreamWriter writerEven = evenPath.AppendText())
             {
@@ -39,7 +40,7 @@ namespace _18_01_Files
                     }
                 }
             }
-
+            printG("Files were written");
         }
         static void AddToFile<type>(type[] arr)
         {
@@ -189,9 +190,14 @@ namespace _18_01_Files
             //writing to the file
             AddToFile(ints);
             AddToFile(doub);
+            printDC("Task4. \nДодаток генерує випадковим чином 10000 цілих чисел. " +
+                "\r\nЗбережіть парні числа в один файл, непарні – в інший. За " +
+                "\r\nпідсумками роботи додатка потрібно відобразити статистику на " +
+                "\r\nекрані");
             int[] ints2 = new int[500];
             fillArr(ints2);
             OddEvenToFile(ints2);
+
             Console.ResetColor();
 
         }

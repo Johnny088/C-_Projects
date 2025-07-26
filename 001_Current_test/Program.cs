@@ -177,6 +177,13 @@ namespace _10_01_Enum
             ulong number = 227900000;
             Console.WriteLine($"\n\tConstans name {number} from the specified enum.\n");
             Console.WriteLine(Enum.GetName(typeof(DistanceSun), number));
+            string word;
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("give me the word you want to find");
+            word = Console.ReadLine()!;
+            string wordReverse = new string(word.Reverse().ToArray());
+            Console.WriteLine(word);
+            Console.WriteLine(wordReverse);
         }
     }
 }

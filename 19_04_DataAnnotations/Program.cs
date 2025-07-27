@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
+using System.Transactions;
 namespace _19_04_DataAnnotations
 {
-    class User
+    class User                                        //CRUD - Create, Read, Update, Delete
     {
         [Required(ErrorMessage = "Id not defined")]
         public int Id { get; set; }
@@ -27,20 +30,16 @@ namespace _19_04_DataAnnotations
         public string Phone { get; set; }
 
     }
-
-    internal class Program
+    class UserData
     {
-        static void Menu()
+        Dictionary<int,User> users = new Dictionary<int, User>();
+        public void add()
         {
-            Console.WriteLine("Registration form");
-        }
-        static void Main(string[] args)
-        {
-            string usersJson = "users.json";
-            string jsonString = "";
+            string usersJson = "users.json";     //variable with the name of the file
+            string jsonString = "";              // AN empty string, Why? I have no Idea, but it works...
 
             User user = new User();
-            bool isValid = true;
+            bool isValid = true;                // why is it exactly true, why not false??? 
             do
             {
                 Console.WriteLine("Enter name:");
@@ -65,7 +64,7 @@ namespace _19_04_DataAnnotations
                 string phone = Console.ReadLine()!;
 
 
-                user.Id = 1;
+                user.Id = users.Count+1;
                 user.Name = name;
                 user.Age = age;
                 user.Password = password;
@@ -88,13 +87,92 @@ namespace _19_04_DataAnnotations
                 }
                 if (isValid)
                 {
-                    jsonString = JsonSerializer.Serialize(user);
-                    File.WriteAllText(usersJson, jsonString);
+                    users.Add(users.Count + 1, user);
+                    //jsonString = JsonSerializer.Serialize(user);  // creating the Json string into the memory
+                    //File.WriteAllText(usersJson, jsonString);     // sending first the path to the file / then Json string
                 }
 
 
             } while (!isValid);
+        }
+        public void read()
+        {
+            users = null;
+            string jsonStream = File.ReadAllText("users.json");
+            users = JsonSerializer.Deserialize<Dictionary<int, User>>(jsonStream)!; // you may need to create this file before
+            Program.printG("The data was read from the file");
+            
+        }
+        public void update()   //update how I understand it's about writing the data into the file, so I'll just do it.
+        {
+            
+            string jsonStream = "users.json";
+            string jsonData = JsonSerializer.Serialize(users);
+            File.WriteAllText(jsonStream, jsonData);
+        }
+        public void delete()
+        {
+            Program.printY("Enter the id you wanna delete");
+            int key = int.Parse(Console.ReadLine()!);
+            if (users.ContainsKey(key))
+            {
+                Program.printR(users[key].Name + "was deleted");
+                users.Remove(key);
 
+            }
+            else
+            {
+                Program.printG("This key doesn't exist");
+
+            }
+        }
+
+    }
+
+    internal class Program
+    {
+        static void Menu()
+        {
+            Console.WriteLine("Registration form");
+            
+        }
+        #region print
+        public static void printR<type>(type message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+        }
+        public static void printC<type>(type message)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(message);
+        }
+        public static void printDC<type>(type message)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine(message);
+        }
+        public static void printY<type>(type message)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(message);
+        }
+        public static void printG<type>(type message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+        }
+        public static void printDY<type>(type message)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine(message);
+        }
+        #endregion
+        static void Main(string[] args)
+        {
+
+            Menu();
 
             Console.WriteLine("Model is valid");
             //Menu();

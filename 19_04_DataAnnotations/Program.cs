@@ -133,7 +133,17 @@ namespace _19_04_DataAnnotations
     {
         static void Menu()
         {
-            Console.WriteLine("Registration form");
+            UserData users = new UserData();
+            users.read();      // read your file by itself during th launch the project.
+            //int key;
+            printDC("Main Menu");
+            printY("1 - to add another user \n2 - to delete an user by id \n3 - write to the file");
+            ConsoleKeyInfo choice = Console.ReadKey();
+            switch (choice.Key)
+            {
+
+            }
+
             
         }
         #region print

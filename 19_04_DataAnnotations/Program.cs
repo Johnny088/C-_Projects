@@ -62,7 +62,7 @@ namespace _19_04_DataAnnotations
                 Console.WriteLine("Enter email");
                 string email = Console.ReadLine()!;
 
-                Console.WriteLine("Enter phone");
+                Console.WriteLine("Enter phone (example 0685962356)");
                 string phone = Console.ReadLine()!;
 
                 int temp = users.Count + 1;
@@ -105,6 +105,7 @@ namespace _19_04_DataAnnotations
                 if (isValid)
                 {
                     users.Add(temp, user);
+                    Program.printG("User was added");
                     //jsonString = JsonSerializer.Serialize(user);  // creating the Json string into the memory
                     //File.WriteAllText(usersJson, jsonString);     // sending first the path to the file / then Json string
                 }
@@ -126,6 +127,7 @@ namespace _19_04_DataAnnotations
             string jsonStream = "users.json";
             string jsonData = JsonSerializer.Serialize(users);
             File.WriteAllText(jsonStream, jsonData);
+            Program.printG("The file was overridden");
         }
         public void delete()
         {
@@ -133,7 +135,7 @@ namespace _19_04_DataAnnotations
             int key = int.Parse(Console.ReadLine()!);
             if (users.ContainsKey(key))
             {
-                Program.printR(users[key].Name + "was deleted");
+                Program.printR(users[key].Name + " was deleted");
                 users.Remove(key);
 
             }

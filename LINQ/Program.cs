@@ -109,6 +109,8 @@ namespace LINQ
             double Average = (from item in arr2
                         where item > 0 && item < 100
                         select item).Average();
+            printDC("All positive numbers >9 && <100");
+            printC("");
             foreach (var item in newResult1)
             {
                 Console.Write(item + " ");

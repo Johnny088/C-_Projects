@@ -11,6 +11,7 @@ namespace _19_04_DataAnnotations
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Name not setted")]
+        [RegularExpression(@"^[A-Z][a-z]{2,}$", ErrorMessage = "your Login is incorrect")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Wrong lenght")]
         public string Name { get; set; }
 
@@ -19,7 +20,8 @@ namespace _19_04_DataAnnotations
         public int Age { get; set; }
         [EmailAddress]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "the login was not set up")]
+        [RegularExpression(@"^[A-Z][a-z]{2,}$", ErrorMessage = "your Login is incorrect")]
         public string Login { get; set; }
         [Required]
         public string Password { get; set; }

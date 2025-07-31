@@ -1,8 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
-using System.Transactions;
 namespace _19_04_DataAnnotations
 {
     class User                                        //CRUD - Create, Read, Update, Delete
@@ -68,8 +65,23 @@ namespace _19_04_DataAnnotations
                 Console.WriteLine("Enter phone");
                 string phone = Console.ReadLine()!;
 
-
-                user.Id = users.Count + 1;
+                int temp = users.Count + 1;
+                bool flag = true;
+                while (flag)
+                {
+                    if(!users.ContainsKey(temp))
+                    {
+                        Console.WriteLine(temp);
+                        user.Id = temp;
+                        
+                        flag = false;
+                        
+                    }
+                    else
+                    {
+                        temp++;
+                    }
+                }
                 user.Name = name;
                 user.Age = age;
                 user.Password = password;
@@ -92,7 +104,7 @@ namespace _19_04_DataAnnotations
                 }
                 if (isValid)
                 {
-                    users.Add(users.Count + 1, user);
+                    users.Add(temp, user);
                     //jsonString = JsonSerializer.Serialize(user);  // creating the Json string into the memory
                     //File.WriteAllText(usersJson, jsonString);     // sending first the path to the file / then Json string
                 }
@@ -218,14 +230,16 @@ namespace _19_04_DataAnnotations
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(message);
         }
+        public static void reset()
+        {
+            Console.ResetColor();
+        }
         #endregion
         static void Main(string[] args)
         {
 
             Menu();
-
-            Console.WriteLine("Model is valid");
-            //Menu();
+            reset();
         }
     }
 }

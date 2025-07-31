@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using System.Text.RegularExpressions;
+using System.Threading.Channels;
 
 namespace _001_new_test
 {
@@ -43,45 +44,55 @@ namespace _001_new_test
             //var query = from i in arr select i;
             //int[] query = from i in arr select i;
             //Console.WriteLine("--------Copy array ------");
+            ///////////////////////////////////////////////////
             IEnumerable<int> query = from i in arr select i;
-            foreach (int i in query)
-            {
-                Console.Write(i + " ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("--------Original array ------");
-            arr[0] = 100;
+            //    foreach (int i in query)
+            //    {
+            //        Console.Write(i + " ");
+            //    }
+            //    Console.WriteLine();
+            //    Console.WriteLine("--------Original array ------");
+            //    arr[0] = 100;
 
-            Console.WriteLine("--------Original array ------");
-            foreach (int i in arr)
+            //    Console.WriteLine("--------Original array ------");
+            //    foreach (int i in arr)
+            //    {
+            //        Console.Write(i + " ");
+            //    }
+            //    Console.WriteLine();
+            //    Console.WriteLine("--------Query array ------");
+            //    foreach (int i in query)
+            //    {
+            //        Console.Write(i + " ");
+            //    }
+            //    Console.WriteLine();
+            //    query = arr.Select(SelectInt);
+            //    Console.WriteLine("--------Original array ------");
+            //    foreach (int i in arr)
+            //    {
+            //        Console.Write(i + " ");
+            //    }
+            //    Console.WriteLine();
+            //    Console.WriteLine("--------Query array ------");
+            //    foreach (int i in query)
+            //    {
+            //        Console.Write(i + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //static int SelectInt(int i)
+            //{
+            //    return i * -1;
+            string pattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*^[A-Za-z0-9].{6,})$";
+            string pattern2 = @"(?=\S*[A-Z])(?=\S*[a-z])(?=\S*\d)(?=\S*[^A-Za-z0-9])\S{6,}";
+            string test = "Gsdafsf&9 asdfdsHGH29* *jsdj12G Ga8% Pas2&word";
+            MatchCollection testPass = Regex.Matches(test, pattern2);
+            foreach (Match match in testPass)
             {
-                Console.Write(i + " ");
+                Console.WriteLine(match.Value);
             }
-            Console.WriteLine();
-            Console.WriteLine("--------Query array ------");
-            foreach (int i in query)
-            {
-                Console.Write(i + " ");
-            }
-            Console.WriteLine();
-            query = arr.Select(SelectInt);
-            Console.WriteLine("--------Original array ------");
-            foreach (int i in arr)
-            {
-                Console.Write(i + " ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("--------Query array ------");
-            foreach (int i in query)
-            {
-                Console.Write(i + " ");
-            }
-            Console.WriteLine();
         }
-        static int SelectInt(int i)
-        {
-            return i * -1;
-        }
+
 
     }
 }

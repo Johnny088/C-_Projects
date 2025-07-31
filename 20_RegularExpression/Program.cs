@@ -67,7 +67,7 @@ namespace _20_RegularExpression
             {
                 Console.WriteLine($"Value: {match.Value}");
             }
-            printY("The file was read");
+            printG("The file was read");
         }
         #region print
         static void printR<type>(type message)
@@ -115,8 +115,9 @@ namespace _20_RegularExpression
             string testFile = @"test.txt";
             var path = new FileInfo(testFile); // I had created the file before now.
             printDC("Data of the file is ===> '2.12 some text 5.12 then 7,15 556 asdf asdf1232 afsd2.1 safd226,34 26 39' ");
-            int[] arr = null;
             SearchFromFile(path);
+            printDY("Task2. Написати програму, яка буде зчитувати вміст текстового файлу \r\nта записувати в колекцію типу int всі знайдені числа в тексті.");
+            int[] arr = null;
             GetIntFromFile(path, ref arr);
             ShowArray(arr);
             reset();
